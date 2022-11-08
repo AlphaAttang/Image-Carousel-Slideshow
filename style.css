@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body{
+  background-color: rgb(32, 42, 68);
+  font-family: "Space Mono", monospace;
+}
+
+h1{
+  color: aliceblue;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 35px;
+}
+
+.imageSlides {
+  display: none;
+}
+
+@media only screen and (max-width:768px) {
+  img {
+    width: 300px;
+  }
+  .wrapper {
+    max-height: 300px;
+  }
+}
+
+@media only screen and (max-width:425px){
+  img{
+    width: 220px;
+  }
+  .wrapper{
+    /* max-width: 200px; */
+    max-height: 220px;
+  }
+  .dot{
+    max-height: 10px;
+    max-width: 10px;
+  }
+  h1{
+    font-size: 25px;
+  }
+  
+}
+@media only screen and (max-width:320px){
+  img{
+    width: 160px;
+  }
+  .wrapper{
+    /* max-width: 200px; */
+    max-height: 160px;
+  }  
+}
+
+img {
+  max-width: 400px;
+  height: 100%;
+}
+
+.images-slideshow {
+  width: 100%;
+}
+.container{
+  position: relative;
+  height: 100vh;
+}
+/* Our images wrapper */
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 400px;
+  border-radius: 50%;
+  border: 2px solid var(--theme-hover);
+  overflow: hidden;
+  background-color: green;
+  box-shadow: rgb(0 0 0 / 80%) 5px 5px 20px;
+  animation-name: fade;
+  animation-duration: 1.2s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*Style for ">" next and "<" previous buttons */
+.slider-btn {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  min-width: auto;
+  padding: 8px 16px;
+  margin-top: -22px;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.5s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+}
+
+/* setting the position of the previous button towards left */
+.previous {
+  left: 2%;
+}
+/* setting the position of the next button towards right */
+.next {
+  right: 2%;
+}
+
+/* On hover, adding a background color */
+.previous:hover,
+.next:hover {
+  color: rgb(255, 253, 253);
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* The dots/bullets/indicators */
+.dot-wrapper {
+  position: absolute;
+  bottom: 2%;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  background-color: gainsboro;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active,
+.dot:hover {
+  background-color: #717171;
+}
+
+.active:first-child {
+  background-color: #55768d;
+}
+.active:nth-child(2) {
+  background-color: #5a3225;
+}
+.active:nth-child(3) {
+  background-color: #a7a042;
+}
+.active:nth-child(4) {
+  background-color: #885c58;
+}
+.active:nth-child(5) {
+  background-color: #643a88;
+}
+.active:nth-child(6) {
+  background-color: #b12616;
+}

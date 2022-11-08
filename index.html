@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <title>Anime Carousel</title>
+</head>
+
+<body>
+    <div class="images-slideshow">
+        
+        <div class="container">
+            <h1>Anime</h1>
+        <div class="imageSlides wrapper">
+            <img  src="/media/de3glsg-3b0992a3-a519-492e-827e-54620986591a.png"
+                alt="My Picture" style="object-fit: cover; opacity: 1" />
+        </div>
+        <div class="imageSlides wrapper">
+            <img  src="/media/84631.jpg"
+                alt="My Picture" style="object-fit: cover; opacity: 1" />
+        </div>
+        <div class="imageSlides wrapper">
+            <img  src="/media/dfaue8u-6e1b86ee-fc42-4e9f-b201-692e063e905b.jpg"
+                alt="My Picture" style="object-fit: cover; opacity: 1" />
+        </div>
+        <div class="imageSlides wrapper">
+            <img  src="/media/dff6nna-55438012-e6d7-43b1-8195-b49a60d9e8a3.png"
+                alt="My Picture" style="object-fit: cover; opacity: 1" />
+        </div>
+        <div class="imageSlides wrapper">
+            <img  src="/media/gojo_satoru_by_fii1998_deb9jvr-fullview.jpg"
+                alt="My Picture" style="object-fit: cover; opacity: 1" />
+        </div>
+        <div class="imageSlides wrapper">
+            <img  src="/media/dd72u09-fbe52b61-0e17-4b55-8f35-57dd9b906f00.png"
+                alt="My Picture" style="object-fit: cover; opacity: 1" />
+        </div>
+        <a class="slider-btn previous" onclick="setSlides(-1)">❮</a>
+        <a class="slider-btn next" onclick="setSlides(1)">❯</a>
+        </div>
+
+       
+
+        <div class="dot-wrapper" style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+        </div>
+    </div>
+
+
+    <script>
+        let currentIndex = 1;
+        displaySlides(currentIndex);
+
+        function setSlides(n) {
+            displaySlides(currentIndex += n);
+            
+        }
+
+        function currentSlide(n) {
+            displaySlides(currentIndex = n);
+        }
+
+        function displaySlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("imageSlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { currentIndex = 1 }
+            if (n < 1) { currentIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[currentIndex - 1].style.display = "block";
+            dots[currentIndex - 1].className += " active";
+            setTimeout(displaySlides, 2000);
+        }
+    </script>
+
+</body>
+
+</html>
